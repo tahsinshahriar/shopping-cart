@@ -9,12 +9,12 @@ const productOnePrice = parseFloat(document.getElementById('price-one').innerTex
 //for incrementing quantity
 
 document.getElementById('increment-one').addEventListener('click', function(){
-    const quantity = parseFloat(document.getElementById('quantity-one').value);
-    const currPrice = parseFloat(document.getElementById('price-one').innerText);
+    let quantity = parseFloat(document.getElementById('quantity-one').value);
     const subTotal = parseFloat(document.getElementById('subtotal').innerText);
+    quantity++;
     document.getElementById('decrement-one').disabled = false;
-    document.getElementById('quantity-one').value = quantity+1;
-    document.getElementById('price-one').innerText = currPrice + productOnePrice;
+    document.getElementById('quantity-one').value = quantity
+    document.getElementById('price-one').innerText = productOnePrice * quantity;
     document.getElementById('subtotal').innerText = subTotal + productOnePrice;
     document.getElementById('total').innerText = subTotal + productOnePrice;
 })
@@ -23,19 +23,18 @@ document.getElementById('increment-one').addEventListener('click', function(){
 //for decrement quantity
 document.getElementById('decrement-one').addEventListener('click', function(){
     let quantity = parseFloat(document.getElementById('quantity-one').value);
-    const currPrice = parseFloat(document.getElementById('price-one').innerText);
     const subTotal = parseFloat(document.getElementById('subtotal').innerText);
-    quantity = quantity - 1;
+    quantity --;
     if(quantity == 0){
         document.getElementById('quantity-one').value = quantity;
-        document.getElementById('price-one').innerText = currPrice - productOnePrice;
+        document.getElementById('price-one').innerText = productOnePrice * quantity;
         document.getElementById('subtotal').innerText = subTotal - productOnePrice;
         document.getElementById('total').innerText = subTotal - productOnePrice;
         document.getElementById('decrement-one').disabled = true;
     }
     else {
         document.getElementById('quantity-one').value = quantity;
-        document.getElementById('price-one').innerText = currPrice - productOnePrice;
+        document.getElementById('price-one').innerText = productOnePrice * quantity;
         document.getElementById('subtotal').innerText = subTotal - productOnePrice;
         document.getElementById('total').innerText = subTotal + productOnePrice;
     }
@@ -62,12 +61,12 @@ const productTwoPrice = parseFloat(document.getElementById('price-two').innerTex
 //for incrementing quantity
 
 document.getElementById('increment-two').addEventListener('click', function(){
-    const quantity = parseFloat(document.getElementById('quantity-two').value);
-    const currPrice = parseFloat(document.getElementById('price-two').innerText);
+    let quantity = parseFloat(document.getElementById('quantity-two').value);
     const subTotal = parseFloat(document.getElementById('subtotal').innerText);
+    quantity++;
     document.getElementById('decrement-two').disabled = false;
-    document.getElementById('quantity-two').value = quantity+1;
-    document.getElementById('price-two').innerText = currPrice + productTwoPrice;
+    document.getElementById('quantity-two').value = quantity;
+    document.getElementById('price-two').innerText = productTwoPrice *  quantity;
     document.getElementById('subtotal').innerText = subTotal + productTwoPrice;
     document.getElementById('total').innerText = subTotal + productTwoPrice;
 })
@@ -76,19 +75,18 @@ document.getElementById('increment-two').addEventListener('click', function(){
 //for decrement quantity
 document.getElementById('decrement-two').addEventListener('click', function(){
     let quantity = parseFloat(document.getElementById('quantity-two').value);
-    const currPrice = parseFloat(document.getElementById('price-two').innerText);
     const subTotal = parseFloat(document.getElementById('subtotal').innerText);
-    quantity = quantity - 1;
+    quantity --;
     if(quantity == 0){
         document.getElementById('quantity-two').value = quantity;
-        document.getElementById('price-two').innerText = currPrice - productTwoPrice;
+        document.getElementById('price-two').innerText = productTwoPrice * quantity;
         document.getElementById('subtotal').innerText = subTotal - productTwoPrice;
         document.getElementById('total').innerText = subTotal - productTwoPrice;
         document.getElementById('decrement-two').disabled = true;
     }
     else {
         document.getElementById('quantity-two').value = quantity;
-        document.getElementById('price-two').innerText = currPrice - productTwoPrice;
+        document.getElementById('price-two').innerText = productTwoPrice * quantity;
         document.getElementById('subtotal').innerText = subTotal - productTwoPrice;
         document.getElementById('total').innerText = subTotal - productTwoPrice;
     }
